@@ -16,9 +16,11 @@
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
     <link href="css/ekko-lightbox.css" rel="stylesheet">
     <link href="styles/main.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gamja+Flower|Gugi|Noto+Serif+KR|Stylish|Sunflower:300"
           rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.1.js"></script>
+    <script src="js/bootstrap.js"></script>
 
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -56,28 +58,28 @@
 
         $(document).ready(function () {
 
-            function getText(){
-                var result = null;
-                $.ajax( { url: "https://raw.githubusercontent.com/AndersonChoi/wedding-card/master/README.md",
-                        type: 'get',
-                        dataType: 'html',
-                        async: false,
-                        success: function(data) { result = data; }
-                    }
-                );
-                FileReady = true;
-                return result;
-            }
-            var markdown_source = getText();
-            var comment_contents = markdown_source.split("축하의 말")[1];
-
-            var md = new Remarkable();
-            $("#comments").append(md.render(comment_contents));
-
-            
-            if(findGetParameter('gift')=='false'){
-                $('#gifts').hide();
-            }
+            // function getText(){
+            //     var result = null;
+            //     $.ajax( { url: "https://raw.githubusercontent.com/AndersonChoi/wedding-card/master/README.md",
+            //             type: 'get',
+            //             dataType: 'html',
+            //             async: false,
+            //             success: function(data) { result = data; }
+            //         }
+            //     );
+            //     FileReady = true;
+            //     return result;
+            // }
+            // var markdown_source = getText();
+            // var comment_contents = markdown_source.split("축하의 말")[1];
+            //
+            // var md = new Remarkable();
+            // $("#comments").append(md.render(comment_contents));
+            //
+            //
+            // if(findGetParameter('gift')=='false'){
+            //     $('#gifts').hide();
+            // }
         });
 
 
@@ -147,6 +149,55 @@
                 </div>
             </div>
         </div>
+
+        <div class="ww-section" id="send-mind">
+            <div class="container" style="max-width: 600px">
+                <h2 class="h1 text-center pb-3 ww-title" style="font-font: 'Noto Serif KR', serif;">마음 전하실 곳</h2>
+                <div class="row text-center">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                        aria-expanded="false" aria-controls="collapseOne">
+                                    신랑측
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse hide" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            홍성훈
+                                        </div>
+                                        <div class="col">
+                                        </div>
+                                        <div class="col">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-body">
+                                    <strong>two</strong>
+                                </div>
+                            </div>
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                        aria-expanded="false" aria-controls="collapseTwo">
+                                    신부측
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse hide" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>one</strong>
+                                </div>
+                                <div class="accordion-body">
+                                    <strong>two</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="ww-section bg-light" id="events">
             <div class="container ww-wedding-event">
                 <h2 class="h1 text-center pb-3 ww-title" style="font-family: 'Noto Serif KR', serif;">초대합니다</h2>
