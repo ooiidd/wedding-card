@@ -57,7 +57,17 @@
             return result;
         }
 
+        function copyClick(e){
+            console.log(e);
+            console.log(e.target);
+        }
+
         $(document).ready(function () {
+            $(document).on("click", "button[name='copy']", function (e) {
+                let copyText = $(e.target.parentNode.parentNode).find(".copy").text();
+                navigator.clipboard.writeText(copyText);
+                alert("복사되었습니다.");
+            });
 
             // function getText(){
             //     var result = null;
@@ -168,7 +178,7 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <span style="display:block; text-align:left; padding-bottom: 4px;">아버지 홍철의</span>
-                                            <span style="display:block; text-align:left">농협 0000000</span>
+                                            <span style="display:block; text-align:left" class="copy">농협 0000000</span>
                                         </div>
                                         <div class="col-4">
                                         </div>
@@ -176,8 +186,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-
-                                        <button type="button" class="btn btn-light">
+                                        <button type="button" class="btn btn-light" name="copy">
                                             <img src="images/copy.svg"/> 계좌 복사하기</button>
                                     </div>
                                 </div>
